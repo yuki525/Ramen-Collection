@@ -1,33 +1,29 @@
-# <ここにアプリ名を入力>
+# Ramen Collection
 
 ## サイト概要
-<...>
+ラーメン店の情報共有サイト　ラーメンの画像を投稿でき感想を共有できる　ラーメン店の住所を見ることが可能　いいね数でランキング機能あり
 
 ### サイトテーマ
-<...>
+ラーメン店の情報共有
 
 ### テーマを選んだ理由
-<...>
+ラーメンが好きだがどこにいこうか迷ってしまうことがあったためラーメン専用のレビューサイトがあればそこで情報を仕入れて行先を決めることができたらいいなと思いこちらのテーマにしました。
 
 ### ターゲットユーザ
-<...>
+ラーメンを食べたいけどどれを食べればいいのかわからない方、ラーメン店についての情報共有をしたい方
 
 ### 主な利用シーン
-<...>
+行きたいラーメン店の評判を調べる時、ラーメンを食べたいがどこに行けばいいかわからない時
 
 ## 設計書
 <...>
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+https://docs.google.com/spreadsheets/d/1-QQ8ygksNCxibjI9ZhMUvYw-XdXgykmn3NY911GrkzA/edit?usp=sharing
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Windows10
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
