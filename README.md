@@ -16,7 +16,7 @@
 行きたいラーメン店の評判を調べる時、ラーメンを食べたいがどこに行けばいいかわからない時、ラーメン店の情報共有をしたい時
 
 ## 設計書
-<...>
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1-QQ8ygksNCxibjI9ZhMUvYw-XdXgykmn3NY911GrkzA/edit?usp=sharing
