@@ -1,24 +1,31 @@
-# README
+# Ramen Collection
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+ラーメン店の情報共有サイト　ラーメンの画像を投稿でき感想を共有できる（コメント可）　ラーメン店の住所を見ることが可能（グーグルマップと連携）いいね数、評価値でランキング機能あり　ラーメン店名で検索可能　ユーザーの登録住所の近い場所のラーメン店を表示する、ラーメンのスープの味、麺の種類でソート可能
 
-Things you may want to cover:
+### サイトテーマ
+ラーメン店の情報共有
 
-* Ruby version
+### テーマを選んだ理由
+ラーメンがとても好きですがどこにいこうか迷ってしまうことがよくあります。そんな中ラーメン専用の情報共有サイトがあればそのラーメン店を参考にして食べに行く店舗をきめることができ、便利だと思いこちらのテーマにしました。さらに気になっているラーメンの情報共有をして世の中のラーメン好きとつながりたいと思いもあります。
 
-* System dependencies
+### ターゲットユーザ
+ラーメンを食べたいけどどれを食べればいいのかわからない方、ラーメン店についての情報共有をしたい方。
 
-* Configuration
+### 主な利用シーン
+ラーメンを食べたい！でもどこに行けばいいのかわからない、味は？評価は？場所は？そんな時にこちらのサイトを見ていただくことで行きたいラーメン店を見つけることができます。
 
-* Database creation
+行きたいラーメン店の評判を調べる時（ラーメンの評価を★で表示）、ラーメンを食べたいがどこに行けばいいかわからない時（サイト内で地図表示）、ラーメン店の情報共有をしたい時（投稿されているラーメンにコメント可能）、近場のラーメン店を見つけたい時（登録時住所を入れることで近場のラーメン店を表示）、豚骨・しょうゆ・味噌などスープの味でラーメンを選びたい時に検索で絞ることが可能、人気のラーメンを食べたい時（いいね数、評価値でランキングあり）
 
-* Database initialization
+## 設計書
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1-QQ8ygksNCxibjI9ZhMUvYw-XdXgykmn3NY911GrkzA/edit?usp=sharing
 
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Windows10
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
