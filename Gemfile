@@ -79,3 +79,5 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'rspec-rails'
 
 gem 'jquery-rails'
+
+gem 'image_processing', '~> 1.2'
