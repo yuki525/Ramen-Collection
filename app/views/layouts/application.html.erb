@@ -10,6 +10,39 @@
   </head>
 
   <body>
+     <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <div class = row>
+          <a class="navbar-brand" href="/">
+            <span>Ramen Collection</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %>
+                <%= render 'layouts/adminheader' %>
+              <% else %>
+                <%= render 'layouts/header' %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+          <div class="row mt-5 mr-5">
+            <div class="col">
+          <%= form_with url: root_path, method: :get, local: true do |f| %>
+            <%= f.text_field :name %>
+            <%= f.submit "検索" %>
+          <% end %>
+          </div>
+          </div>
+          </div>
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>

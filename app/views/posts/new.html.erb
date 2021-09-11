@@ -1,0 +1,17 @@
+<body>
+  <div class="container">
+    <div class=" row">
+      <div class="col">
+        <%= form_with model: @posts do |f| %>
+          <%= f.file_field :post_image %>
+          <%= f.text_field :shop_name %>
+          <%= f.text_field :address %>
+          <%= f.text_area :introduction %>
+          <%= f.text_field :taste %>
+          <%= f.text_field :noodle_hardness %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
