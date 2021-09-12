@@ -5,13 +5,15 @@
   </div>
   <div class="row">
     <% @posts.each do |post1| %>
-    <div class="col-md-3">
+    <div class="col">
       <div>
         <strong>
-        <div class="my-3"><%#= attachment_image_tag product, :image, size: "200x150" %></div>
+        <%= link_to post_path(post1) do %>
+          <div class="my-3"><%= image_tag post1.post_image.variant(resize:'300x300') %></div>
+        <% end %>
         <div><%= post1.shop_name %></div>
         <div><%= post1.introduction %></div>
-        <div>¥<%= post1.address %></div>
+        <div><%= post1.address %></div>
         <div><%= post1.taste %></div>
         <div><%= post1.noodle_hardness %></div>
         </strong>

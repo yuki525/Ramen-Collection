@@ -18,6 +18,11 @@ class PostsController < ApplicationController
     end
 
   end
+  
+  def show
+    @post = Post.find(params[:id])
+    @customer = @post.customer #投稿した人の情報を抽出
+  end
 
 
   private
