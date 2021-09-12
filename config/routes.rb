@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create, :destroy]
   get '/search' => 'searches#search'
   root 'homes#top'
+  get '/about' => 'homes#about'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

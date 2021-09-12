@@ -1,27 +1,22 @@
-<h1>投稿一覧画面</h1>
+
 <div class="container">
-  <div class="row my-5">
-    <div class='col-12 col-xl-10'>
-      <h2>
-        <strong>投稿一覧</strong>
-      </h2>
+  <div class='col-12 col-xl-10'>
+    <h2><strong>投稿一覧</strong></h2>
+  </div>
+  <div class="row">
+    <% @posts.each do |post1| %>
+    <div class="col-md-3">
+      <div>
+        <strong>
+        <div class="my-3"><%#= attachment_image_tag product, :image, size: "200x150" %></div>
+        <div><%= post1.shop_name %></div>
+        <div><%= post1.introduction %></div>
+        <div>¥<%= post1.address %></div>
+        <div><%= post1.taste %></div>
+        <div><%= post1.noodle_hardness %></div>
+        </strong>
+      </div>
+    <% end %>
     </div>
   </div>
-      <div class="row">
-        <% @posts.each do |post1| %>
-          <div class="col-md-3">
-              <div><strong>
-                <div class="my-3"><%= attachment_image_tag product, :image, size: "200x150" %></div>
-                <div><%= post1.shop_name %></div>
-                <div>¥<%= post1.address %></div>
-              </strong></div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-        <div>
-          <strong><%= paginate  %></strong>
-        </div>
-    </div>
-
 </div>
