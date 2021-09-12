@@ -1,0 +1,55 @@
+<body>
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+      <div class="mb-5">
+        <h2><span class="badge badge-secondary">マイページ</span></h2>
+      </div>
+      <h3 class="font-weight-bold ml-3">登録情報</h3>
+      <div class="mb-3 ml-5">
+        <%= link_to "編集する", edit_user_path(current_customer), class:"btn btn-success" %>
+      </div>
+      <table class="table ml-5">
+        <tr>
+          <th>氏名</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @user.postcode %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+<!--<div class = "container">-->
+<!--  <%#= form_with url: comments_path do |f| %>-->
+<!--  <div class ="row">-->
+<!--  <div class ="col">-->
+<!--   <%#= f.text_area :comment, size: "80x5" %>-->
+<!--  </div>-->
+<!--   <div class ="col">-->
+<!--   <%#= f.submit "送信する" %>-->
+<!--   <%# end %>-->
+<!--   </div>-->
+<!--  </div>-->
+<!--</div>-->

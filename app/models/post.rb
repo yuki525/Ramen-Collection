@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
 
+  belongs_to :customer
+
   has_one_attached :post_image
-
-
   validate :post_image_type
 
 private

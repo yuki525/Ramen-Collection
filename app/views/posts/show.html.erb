@@ -1,0 +1,8 @@
+ <%= @customer.name %>
+  	<h2>投稿詳細</h2>
+      <div class="my-3"><%= image_tag @post.post_image.variant(resize:'300x300') %></div>
+      <div><%= @post.shop_name %></div>
+      <div><%= @post.introduction %></div>
+      <div><%= @post.address %></div>
+      <div><%= @post.taste %></div>
+      <div><%= @post.noodle_hardness %></div>

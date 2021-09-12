@@ -2,7 +2,7 @@
   <div class="container">
     <div class=" row">
       <div class="col">
-        <%= form_with model: @posts do |f| %>
+        <%= form_with model: @posts, url: posts_path do |f| %>
           <%= f.label :ラーメン画像%>
           <%= f.file_field :post_image %>
       </div>
