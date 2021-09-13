@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_one_attached :post_image
   validate :post_image_type
 
+  has_many :comments, dependent: :destroy
+
 private
 
 def post_image_type

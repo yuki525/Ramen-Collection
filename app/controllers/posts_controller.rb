@@ -11,19 +11,35 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
-    if @post.save #もし保存ができたら以下の処理をする
-      redirect_to posts_path
-    else
-      redirect_to new_post_path
-    end
+    @post.save #もし保存ができたら以下の処理をする
+    redirect_back(fallback_location: root_path)
 
   end
-  
+
   def show
     @post = Post.find(params[:id])
     @customer = @post.customer #投稿した人の情報を抽出
+
+    @comments = @post.comments #投稿に関連付けてあるコメントを全取得
+    @comment = @post.comments.new
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to users_path
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to users_path
+  end
 
   private
 

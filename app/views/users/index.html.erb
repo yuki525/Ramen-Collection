@@ -1,36 +1,73 @@
 <body>
   <div class="container">
     <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
-      <div class="mb-5">
-        <h2><span class="badge badge-secondary">マイページ</span></h2>
+      <div class="col-4">
+
+        <div class="mb-5">
+          <h2><span class="badge badge-secondary">マイページ</span></h2>
+        </div>
+
+        <h3 class="font-weight-bold ml-3">登録情報</h3>
+
+        <div class="mb-3 ml-5">
+          <%= link_to "編集する", edit_user_path(current_customer), class:"btn btn-success" %>
+        </div>
+
+        <table class="table">
+          <tr>
+            <% if @user.profile_image.attached? %>
+              <%= image_tag @user.profile_image.variant(resize:'100x100') %>
+            <% else %>
+              <%= image_tag 'no_image.jpg' %>
+            <% end %>
+          </tr>
+          <tr>
+            <th>氏名</th>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <td><%= @user.postcode %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= @user.address %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+          </tr>
+        </table>
+
       </div>
-      <h3 class="font-weight-bold ml-3">登録情報</h3>
-      <div class="mb-3 ml-5">
-        <%= link_to "編集する", edit_user_path(current_customer), class:"btn btn-success" %>
+
+      <div class = "col-8">
+        <h1>自分の投稿</h1>
+        <table>
+          <tr>
+            <th></th>
+            <th>ラーメン店名</th>
+            <th>ラーメン店住所</th>
+            <th></th>
+          </tr>
+
+          <% @posts.each do |post| %>
+          <tr>
+            <td><%= image_tag post.post_image.variant(resize:'300x300') %></td>
+            <td><%= post.shop_name %></td>
+            <td><%= post.address %></td>
+            <td>
+              <%= link_to "編集する", edit_post_path(post.id) %>
+              <%= link_to "削除", post_path(post), method: :delete %>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+
       </div>
-      <table class="table ml-5">
-        <tr>
-          <th>氏名</th>
-          <td><%= @user.name %></td>
-        </tr>
-        <tr>
-          <th>郵便番号</th>
-          <td><%= @user.postcode %></td>
-        </tr>
-        <tr>
-          <th>住所</th>
-          <td><%= @user.address %></td>
-        </tr>
-        <tr>
-          <th>メールアドレス</th>
-          <td><%= @user.email %></td>
-        </tr>
-      </table>
 
     </div>
   </div>
-</div>
 </body>
 
 

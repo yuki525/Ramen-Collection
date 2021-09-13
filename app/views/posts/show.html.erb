@@ -6,3 +6,15 @@
       <div><%= @post.address %></div>
       <div><%= @post.taste %></div>
       <div><%= @post.noodle_hardness %></div>
+
+
+<%= form_with(model:[@post, @comment], local: true) do |f| %>
+  <%= f.text_area :body %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+
+  <%= f.submit 'コメントする' %>
+  <% end %>
+
+  <% @comments.each do |comment| %>
+  <%= comment.body %>
+  <% end %>
