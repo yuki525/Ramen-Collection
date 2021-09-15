@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @user = current_customer
+    @posts = @user.posts
   end
 
   def edit
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :postcode, :address, :email)
+    params.require(:customer).permit(:name, :postcode, :address, :email, :profile_image)
   end
 
 end

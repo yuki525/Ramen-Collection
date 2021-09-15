@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 }
 
 
-  resources :comments, only: [:create, :destroy]
-  resources :posts
+  
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :rankings, only: [:index]
   resources :users, only: [:index, :edit, :update]
   resources :favorites, only: [:create, :destroy]
