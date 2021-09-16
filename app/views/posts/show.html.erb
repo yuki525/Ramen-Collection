@@ -1,11 +1,78 @@
- <%= @customer.name %>
-  	<h2>投稿詳細</h2>
-      <div class="my-3"><%= image_tag @post.post_image.variant(resize:'300x300') %></div>
-      <div><%= @post.shop_name %></div>
-      <div><%= @post.introduction %></div>
-      <div><%= @post.address %></div>
-      <div><%= @post.taste %></div>
-      <div><%= @post.noodle_hardness %></div>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+
+        <div class="row">
+  	      <h2>投稿詳細</h2>
+        </div>
+
+        <div class="row">
+          <div class="col">
+        	  <%= "投稿ユーザー名" %>
+        	</div>
+        	<div class="col">
+        	  <%= @customer.name %>
+        	</div>
+        </div>
+
+          <div class="my-3"><%= image_tag @post.post_image.variant(resize:'300x300') %></div>
+
+        <div class="row">
+          <div class="col">
+            <%= "ラーメン店名" %>
+          </div>
+          <div class="col">
+            <%= @post.shop_name %>
+          </div>
+        </div>
+
+　　　　<div class="row">
+          <div class="col">
+            <%= "住所" %>
+          </div>
+          <div class="col">
+            <%= @post.address %>
+          </div>
+        </div>
+
+　　　　<div class="row">
+          <div class="col">
+            <%= "スープの味" %>
+          </div>
+          <div class="col">
+            <%= @post.taste %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <%= "麺の硬さ" %>
+          </div>
+          <div class="col">
+            <%= @post.noodle_hardness %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <%= "口コミ" %>
+          </div>
+          <div class="col">
+            <%= @post.introduction %>
+          </div>
+        </div>
+
+        <div class="post-evaluation" data-score="<%= @post.evaluation %>"></div>
+        <div> 評価<%= @post.evaluation %>点</div>
+
+        <h3>いいね件数: <%= @post.favorites.count %></h3>
+        <% if current_customer.already_favorited?(@post) %>
+          <%= link_to 'いいねを取り消す', post_favorite_path(@post), method: :delete %>
+        <% else %>
+          <%= link_to 'いいね', post_favorites_path(@post), method: :post %>
+        <% end %>
+
 
 
 <%= form_with(model:[@post, @comment], local: true) do |f| %>
@@ -14,7 +81,24 @@
 
   <%= f.submit 'コメントする' %>
   <% end %>
-
+</div>
+  <div class="col-8">
   <% @comments.each do |comment| %>
-  <%= comment.body %>
+  <%= comment.body%>
+  <%= link_to "削除", post_comment_path(@post, comment), method: :delete %>
   <% end %>
+  </div>
+</div>
+
+  </div>
+</body>
+
+<script>
+  $('.post-evaluation').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>

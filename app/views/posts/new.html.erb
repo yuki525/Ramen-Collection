@@ -38,6 +38,11 @@
         <%= f.select :noodle_hardness, [['ばりやわ', "ばりやわ"], ['やわ', "やわ"], ['普通', "普通"], ['硬麺', "硬麺"], ['ばり硬', "ばり硬"], ['針金', "針金"]], { include_blank: true }%>
       </div>
     </div>
+
+    <div id="evaluate_stars">
+    <label>評価</label>
+    </div>
+
     <div class=" row">
       <div class="col">
         <%= f.submit "投稿する", class:"btn btn-success" %>
@@ -46,3 +51,12 @@
   </div>
   <% end %>
 </body>
+
+<script>
+  $('#evaluate_stars').raty({
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    scoreName: 'post[evaluation]' //登録するモデル名とカラム名を記述
+  });
+</script>

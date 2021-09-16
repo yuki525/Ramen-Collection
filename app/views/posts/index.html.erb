@@ -3,8 +3,8 @@
   <div class='col-12 col-xl-10'>
     <h2><strong>投稿一覧</strong></h2>
   </div>
+  <% @posts.each do |post1| %>
   <div class="row">
-    <% @posts.each do |post1| %>
     <div class="col">
       <div>
         <strong>
@@ -16,9 +16,21 @@
         <div><%= post1.address %></div>
         <div><%= post1.taste %></div>
         <div><%= post1.noodle_hardness %></div>
+        <div class="post-evaluation" data-score="<%= post1.evaluation %>"></div>
+        <div> 評価<%= post1.evaluation %>点</div>
         </strong>
       </div>
     <% end %>
     </div>
   </div>
 </div>
+
+<script>
+  $('.post-evaluation').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
