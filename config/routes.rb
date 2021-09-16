@@ -11,14 +11,15 @@ Rails.application.routes.draw do
 }
 
 
-  
+
   resources :posts do
     resources :comments, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
   end
   resources :rankings, only: [:index]
   resources :users, only: [:index, :edit, :update]
-  resources :favorites, only: [:create, :destroy]
-  get '/search' => 'searches#search'
+
+  get '/search' => 'posts#search'
   root 'homes#top'
   get '/about' => 'homes#about'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
