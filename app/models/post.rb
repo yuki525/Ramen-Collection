@@ -10,7 +10,8 @@ class Post < ApplicationRecord
   has_many :favorites
   has_many :favorited_customers, through: :favorites, source: :customer
 
-
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
 private
 

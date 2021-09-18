@@ -18,6 +18,9 @@
         <div><%= post1.noodle_hardness %></div>
         <div class="post-evaluation" data-score="<%= post1.evaluation %>"></div>
         <div> 評価<%= post1.evaluation %>点</div>
+        <div id="favorite_buttons_<%= post1.id %>">
+　　　    <%= render "favorites/favorite", post: post1 %>
+　　    </div>
         </strong>
       </div>
     <% end %>

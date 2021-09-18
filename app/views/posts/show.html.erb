@@ -66,12 +66,9 @@
         <div class="post-evaluation" data-score="<%= @post.evaluation %>"></div>
         <div> 評価<%= @post.evaluation %>点</div>
 
-        <h3>いいね件数: <%= @post.favorites.count %></h3>
-        <% if current_customer.already_favorited?(@post) %>
-          <%= link_to 'いいねを取り消す', post_favorite_path(@post), method: :delete %>
-        <% else %>
-          <%= link_to 'いいね', post_favorites_path(@post), method: :post %>
-        <% end %>
+        <div id="favorite_buttons_<%= @post.id %>">
+　　　    <%= render "favorites/favorite", post: @post %>
+　　    </div>
 
 
 
@@ -101,4 +98,44 @@
     },
     path: '/assets/'
   });
+</script>
+
+<style type="text/css">
+  #map { height: 200px;
+         width: 70%;}
+</style>
+
+<div id="map"></div>
+
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @post.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
