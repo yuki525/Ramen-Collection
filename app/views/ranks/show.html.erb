@@ -1,0 +1,14 @@
+<% @all_ranks.each.with_index(1) do |post, i| %>
+<%= link_to post_path(post) do %>
+
+  <div>第<%= i %> 位</div>
+  <div class="my-3"><%= image_tag post.post_image.variant(resize:'300x300') %></div>
+  <div><%= post.shop_name %></div>
+  <div><%= post.introduction %></div>
+  <div><%= post.address %></div>
+  <div><%= post.taste %></div>
+  <div><%= post.noodle_hardness %></div>
+  <div class="post-evaluation" data-score="<%= post.evaluation %>"></div>
+  <div> 評価<%= post.evaluation %>点</div>
+<% end %>
+<% end %>

@@ -1,13 +1,16 @@
 class FavoritesController < ApplicationController
   def create
-   @favorite = current_customer.favorites.create(post_id: params[:post_id])
-    redirect_back(fallback_location: root_path)
+    @post = Post.find(params[:post_id])
+    # @favorite = current_customer.favorites.create(post_id: params[:post_id])
+    @favorite = current_customer.favorites.new(post_id: @post.id)
+    @favorite.save
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
     @favorite = Favorite.find_by(post_id: params[:post_id], customer_id: current_customer.id)
     @favorite.destroy
-    redirect_back(fallback_location: root_path)
+
   end
 
 
