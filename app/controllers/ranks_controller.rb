@@ -1,9 +1,11 @@
 class RanksController < ApplicationController
   def index
-    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id)) #いいね数が多い順に投稿を取得
   end
 
   def show
-    @all_ranks = Post.find(Evaluation.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    #評価が高い順に投稿を取得
+   @evaluation = Post.order("evaluation DESC").limit(3)
+
   end
 end
