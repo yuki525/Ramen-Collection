@@ -1,5 +1,5 @@
 <% if customer_signed_in? %>
-    <h2>ようこそ、<%#= current_customer.last_name %>さん！</h2>
+    <h2>ようこそ、<%= current_customer.name %>さん！</h2>
     <li><%= link_to 'マイページ', users_path, class: 'nav-link text-dark' %></li>
     <li><%= link_to 'ランキング', ranks_path, class: 'nav-link text-dark' %></li>
     <li><%= link_to '投稿一覧', posts_path, class: 'nav-link text-dark' %></li>
