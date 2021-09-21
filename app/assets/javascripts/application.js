@@ -21,3 +21,4 @@
 //= require turbolinks
 //= require_tree .
 
+//= require swiper/swiper-bundle.js
