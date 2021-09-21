@@ -1,12 +1,12 @@
 <body>
   <div class="container">
+    <div class="row mt-3">
+      <div class="col-2">
+        <h2 class="rounded-pill border text-center">マイページ</h2>
+      </div>
+    </div>
     <div class="row">
       <div class="col-4">
-
-        <div class="mb-5">
-          <h2><span class="badge badge-secondary">マイページ</span></h2>
-        </div>
-
         <h3 class="font-weight-bold ml-3">登録情報</h3>
 
         <div class="mb-3 ml-5">
@@ -16,7 +16,7 @@
         <table class="table">
           <tr>
             <% if @user.profile_image.attached? %>
-              <%= image_tag @user.profile_image.variant(resize:'50x50') %>
+              <%= image_tag @user.profile_image, class: "userimage" %>
             <% else %>
               <%= image_tag 'no_image.jpg', size: "100x100" %>
             <% end %>
@@ -53,7 +53,7 @@
 
           <% @posts.each do |post| %>
           <tr>
-            <td><%= image_tag post.post_image.variant(resize:'150x100') %></td>
+            <td><%= image_tag post.post_image, class: "postimage" %></td>
             <td><%= post.shop_name %></td>
             <td><%= post.address %></td>
             <td>

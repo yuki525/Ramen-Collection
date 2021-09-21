@@ -1,13 +1,17 @@
 <div class="post-list">
+  <% if @posts == 0 %>
+  <h2>検索結果　見つかりませんでした</h2>
+  <% else %>
   <% @posts.each do |post| %>
     <%= post.shop_name %>
     <%= link_to post_path(post) do %>
           <div class="my-3"><%= image_tag post.post_image.variant(resize:'150x150') %></div>
-        <% end %>
+    <% end %>
 
         <div><%= post.introduction %></div>
         <div><%= post.address %></div>
         <div><%= post.taste %></div>
         <div><%= post.noodle_hardness %></div>
+  <% end %>
   <% end %>
 </div>
