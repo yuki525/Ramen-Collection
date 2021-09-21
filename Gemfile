@@ -72,7 +72,7 @@ gem 'pry-byebug', group: :development
 
 gem 'devise'
 
-gem 'bootstrap', '~> 4.5'
+gem 'bootstrap', '~> 5.0.0.alpha1'
 
 gem 'font-awesome-sass', '~> 5.13'
 

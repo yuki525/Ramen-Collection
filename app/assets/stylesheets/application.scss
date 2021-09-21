@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
@@ -52,4 +53,50 @@
   .swiper-button-next {
     right: 25px;
   }
+}
+
+.btnx-indigo-light{
+    color: var(--bs-#000000) ;background: #FFCC66; border: 2px solid #FFCC66;
+}
+.btnx-red-light{
+    color: var(--bs-#000000) ;background: #FFFFFF; border: 2px solid #808080;
+}
+
+.homelink{
+   text-decoration: none;
+   color: #000000 ;
+}
+
+// ユーザー画像を表示する時に使用
+.userimage{
+   border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+}
+
+// ラーメン投稿画像を表示
+.postimage{
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.postshowimage{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+.map{
+  width: 1000px;
+    height: 600px;
+}
+
+.userimage_comment{
+  border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
 }

@@ -9,14 +9,24 @@
 
         <div class="row">
           <div class="col">
-        	  <%= "投稿ユーザー名" %>
+        	  <%= "投稿ユーザー" %>
         	</div>
         	<div class="col">
+        	  <% if @customer.profile_image.attached? %>
+              <%= image_tag @customer.profile_image, class: "userimage" %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', size: "100x100" %>
+            <% end %>
         	  <%= @customer.name %>
         	</div>
         </div>
 
-          <div class="my-3"><%= image_tag @post.post_image.variant(resize:'300x300') %></div>
+          <div class="my-3">
+             <%# @post.post_image.each do |portrait| %>
+              <%#= image_tag portrait.variant(resize_to_limit: [100, 100]) %>
+            <%# end %>
+            <%= image_tag @post.post_image, class: "postshowimage" %>
+          </div>
 
         <div class="row">
           <div class="col">
@@ -71,23 +81,49 @@
 　　    </div>
 
 
+    <div>
+      <%= form_with(model:[@post, @comment], local: true) do |f| %>
+        <%= f.text_area :body %>
+        <%= f.hidden_field :post_id, value: @post.id %>
 
-<%= form_with(model:[@post, @comment], local: true) do |f| %>
-  <%= f.text_area :body %>
-  <%= f.hidden_field :post_id, value: @post.id %>
+        <%= f.submit 'コメントする' %>
+      <% end %>
+    </div>
 
-  <%= f.submit 'コメントする' %>
-  <% end %>
-</div>
-  <div class="col-8">
-  <% @comments.each do |comment| %>
-  <%= comment.body%>
-  <%= link_to "削除", post_comment_path(@post, comment), method: :delete %>
-  <% end %>
-  </div>
-</div>
 
   </div>
+
+      <div class="col-8 mt-5">
+        <h2>所在地</h2>
+        <div id="map", class="map rounded"></div>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-8">
+        <h1>クチコミ</h1>
+        <% @comments.each do |comment| %>
+        <div class="comment rounded-3 bg-light mb-4 shadow border border-1 border-light">
+          <div class="m-3">
+            <% if comment.customer.profile_image.attached? %>
+                <%= image_tag comment.customer.profile_image, class: "userimage_comment" %>
+              <% else %>
+                <%= image_tag 'no_image.jpg', size: "100x100" %>
+              <% end %>
+            <%= comment.customer.name %>
+          </div>
+          <div class="ms-5">
+            <%= comment.body%>
+          </div>
+          <div class="text-end m-2">
+            <%= link_to "削除", post_comment_path(@post, comment), method: :delete %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+
 </body>
 
 <script>
@@ -101,15 +137,15 @@
 </script>
 
 <style type="text/css">
-  #map { height: 200px;
-         width: 70%;}
+  #map { height: 80%;
+         width: 100%;}
 </style>
 
-<div id="map"></div>
+
 
 <!--グーグルマップ表示-->
 
-<script type="text/javascript">　
+<script type="text/javascript">
   function initMap() {
     var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {

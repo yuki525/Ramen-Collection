@@ -1,14 +1,14 @@
 <% if customer_signed_in? %>
-    <h2>ようこそ、<%= current_customer.name %>さん！</h2>
-    <li><%= link_to 'マイページ', users_path, class: 'nav-link text-dark' %></li>
-    <li><%= link_to 'ランキング', ranks_path, class: 'nav-link text-dark' %></li>
-    <li><%= link_to '投稿一覧', posts_path, class: 'nav-link text-dark' %></li>
-    <li><%= link_to '新規投稿',new_post_path, class: 'nav-link text-dark' %></li>
-    <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+    <!--<h2>ようこそ、<%= current_customer.name %>さん！</h2>-->
+    <%= link_to 'マイページ', users_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill' %>
+    <%= link_to 'ランキング', ranks_path, class: 'fas fa-crown btn btn-light btnx-red-light rounded-pill' %>
+    <%= link_to '投稿一覧', posts_path, class: 'fas fa-list-alt btn btn-light btnx-red-light rounded-pill' %>
+    <%= link_to '新規投稿',new_post_path, class: 'fas fa-plus btn btn-light btnx-red-light rounded-pill' %>
+    <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'fas fa-sign-out-alt btn btn-light btnx-red-light rounded-pill' %>
 
   <% else %>
-    <li><%= link_to 'About', about_path, class: 'nav-link text-dark' %></li>
-    <li><%= link_to '投稿一覧', posts_path, class: 'nav-link text-dark' %></li>
-    <li><%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-dark' %></li>
-    <li><%= link_to 'ログイン', new_customer_session_path, class: 'nav-link text-dark' %></li>
+    <%= link_to 'About', about_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill' %>
+    <%= link_to '投稿一覧', posts_path, class: 'fas fa-list-ol btn btn-light btnx-red-light rounded-pill' %>
+    <%= link_to '新規登録', new_customer_registration_path, class: 'fas fa-user-plus btn btn-light btnx-red-light rounded-pill' %>
+    <%= link_to 'ログイン', new_customer_session_path, class: 'fas fa-sign-in-alt btn btn-light btnx-red-light rounded-pill' %>
   <% end %>

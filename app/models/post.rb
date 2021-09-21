@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
 
   belongs_to :customer
-
   has_one_attached :post_image
+
   validate :post_image_type
 
   has_many :comments, dependent: :destroy
@@ -24,9 +24,15 @@ private
 
   def self.search(keyword)
     where(["shop_name like? OR taste like?", "%#{keyword}%", "%#{keyword}%"])
+
   end
 
+  def self.searchtaste(taste1)
+  where(["taste like? OR address like?", "%#{taste1}%", "%#{taste1}%"])
+  end
 
-
+  def self.searchnoodle(noodle)
+  where(["noodle_hardness like? OR address like?", "%#{noodle}%", "%#{noodle}%"])
+  end
 
 end
