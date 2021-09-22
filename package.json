@@ -1,7 +1,5 @@
 {
   "name": "Ramen_Collection",
   "private": true,
-  "dependencies": {
-    "swiper": "^7.0.6"
-  }
+  "dependencies": {}
 }
