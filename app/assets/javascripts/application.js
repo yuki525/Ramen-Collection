@@ -19,6 +19,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require swiper/swiper-bundle.js
 //= require_tree .
 
