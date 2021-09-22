@@ -6,41 +6,10 @@
 
   <div class="row">
     <div class="col">
-      <form action="/searchtaste" method="post">
-
-		<p>選択して下さい</p>
-		<select name="range">
-			<option value="スープの味" selected="selected" class="msg">1番目の要素を選択して下さい</option>
-			<option value="スープの味" class="range">スープの味</option>
-			<option value="麺の硬さ" class="range1">麺の硬さ</option>
-
-		</select>
-
-		<p>選択して下さい</p>
-		<select name="city">
-			<option value="Japan" selected="selected" class="msg">都市を選択して下さい</option>
-			<option value="醤油" class="range">醤油</option>
-			<option value="塩" class="range">塩</option>
-			<option value="味噌" class="range">味噌</option>
-			<option value="豚骨" class="range">豚骨</option>
-			<option value="鶏白湯" class="range">鶏白湯</option>
-			<option value="つけ麺" class="range">つけ麺</option>
-			<option value="油そば" class="range">油そば</option>
-			<option value="その他" class="range">その他</option>
-			<option value="ばりやわ" class="range1">ばりやわ</option>
-			<option value="やわ" class="range1">やわ</option>
-			<option value="普通" class="range1">普通</option>
-			<option value="硬麺" class="range1">硬麺</option>
-			<option value="ばり硬" class="range1">ばり硬</option>
-			<option value="針金" class="range1">針金</option>
-
-		</select>
-   <input type="submit" value="送信">
-	</form>
       <%= form_with url: searchtaste_path, method: :get, local: true do |f| %>
-      <%= f.select :range, options_for_select([['スープの味'], ['麺の硬さ']]) %>
+      <%= f.label :スープの味を選択してください %>
       　<%= f.select :taste1, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], include_blank: "選択して下さい" %>
-
+        <%= f.submit "絞り込み", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

@@ -3,7 +3,13 @@ class Post < ApplicationRecord
   belongs_to :customer
   has_one_attached :post_image
 
-  validate :post_image_type
+  validates :shop_name, presence: true
+  validates :address, presence: true
+  validates :introduction, presence: true
+  validates :taste, presence: true
+  validates :noodle_hardness, presence: true
+  validates :evaluation, presence: true
+  validates :post_image, presence: true, blob: { content_type: :image }
 
   has_many :comments, dependent: :destroy
 
@@ -15,12 +21,7 @@ class Post < ApplicationRecord
 
 private
 
-  def post_image_type
-    if !post_image.blob.content_type.in?(%('post_image/jpg post_image/png post_image/jpeg'))
-      post_image.purge # Rails6では、この1行は必要ない
-      errors.add(:post_image, 'はJPEGまたはPNG形式を選択してアップロードしてください')
-    end
-  end
+
 
   def self.search(keyword)
     where(["shop_name like? OR taste like?", "%#{keyword}%", "%#{keyword}%"])

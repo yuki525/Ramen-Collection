@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        shop_name: 店名
+        address: 住所
+        introduction: 説明文
+        taste: スープの味
+        noodle_hardness: 麺の硬さ
+        evaluation: 評価
+        post_image: 画像

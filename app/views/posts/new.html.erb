@@ -1,10 +1,20 @@
 <body>
+
+  <% if @posts.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <%= @posts.errors.count %>個のエラーあり
+      <% @posts.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+
   <%= form_with(model: @posts, url: posts_path, local: true) do |f| %>
   <div class="container">
     <div class=" row">
       <div class="col">
           <%= f.label :"ラーメン画像" %>
-          <%= f.file_field :post_image, multiple: true %>
+          <%= f.file_field :post_image %>
 
       </div>
     </div>

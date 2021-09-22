@@ -9,11 +9,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.customer_id = current_customer.id
-    @post.save #もし保存ができたら以下の処理をする
-    redirect_back(fallback_location: root_path)
-
+    @posts = Post.new(post_params)
+    @posts.customer_id = current_customer.id
+    if @posts.save #もし保存ができたら以下の処理をする
+      redirect_back(fallback_location: root_path)
+    else
+      render "new"
+    end
   end
 
   def show
@@ -53,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:shop_name, :address, :introduction, :taste, :noodle_hardness, :evaluation, :post_image, post_images: [])
+    params.require(:post).permit(:shop_name, :address, :introduction, :taste, :noodle_hardness, :evaluation, :post_image)
   end
 
 
