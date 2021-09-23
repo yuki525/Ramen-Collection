@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(9)
   end
 
   def new
@@ -48,8 +48,9 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword])
+    @posts = @posts.page(params[:page]).per(12)
     @keyword = params[:keyword]
-    render "search"
+    render "index"
   end
 
   private

@@ -1,10 +1,11 @@
 <div class="container mt-5">
   <div class="row mx-auto">
-    <h2><span class="badge badge-secondary">会員情報編集</span></h2>
+    <div class="col">
+      <h2 class="fas fa-wrench m-5 rounded p-3 border border-secondary">会員情報編集</h2>
+    </div>
   </div>
   <%=  form_with model: @customer, url: user_path, local:true do |f| %>
-    <%# = render "devise/shared/error_messages", resource: resource %>
-    <%#= render "devise/shared/error_messages", resource: @customer %>
+
     <div class="mb-3 row">
       <%= f.label :"氏名", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-4">

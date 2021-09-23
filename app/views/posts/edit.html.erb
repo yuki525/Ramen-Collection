@@ -1,55 +1,56 @@
 <div class="container">
   <div class="row">
-    <h2><span class="badge badge-secondary">投稿編集</span></h2>
-    </div>
-    <div class="row">
-<div class= "col-lg-3"></div>
-<div class= "col-lg-6">
-<%= form_with model: @post, url: post_path, local:true do |f| %>
-  <table class= "table table-borderless">
-    <tr>
-      <th><%= f.label :"ラーメン画像" %></th>
-      <td><%= f.file_field :post_image %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :"ラーメン店名" %></th>
-      <td><%= f.text_field :shop_name %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :"ラーメン店住所" %></th>
-      <td><%= f.text_field :address %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :"紹介文" %></th>
-      <td><%= f.text_area :introduction %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :"ラーメンスープの味" %></th>
-      <td><%= f.select :taste, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], { include_blank: true }%></td>
-    </tr>
-    <tr>
-      <th><%= f.label :"麺の固さ" %></th>
-      <td>
-       <%= f.select :noodle_hardness, [['ばりやわ', "ばりやわ"], ['やわ', "やわ"], ['普通', "普通"], ['硬麺', "硬麺"], ['ばり硬', "ばり硬"], ['針金', "針金"]], { include_blank: true }%>
-      </td>
-    </tr>
-    <tr>
-      <th>
-        現在の評価点<%= @post.evaluation %>
-      </th>
-      <td>
-      <div id="evaluate_stars">
-        <label class ="mr-3">評価</label>
-      </div>
-      </td>
-    </tr>
-    <tr>
-      <th></th>
-      <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
-    </tr>
-  </table>
-  <% end %>
- </div>
+    <h2><span class="fas fa-wrench m-5 rounded p-3 border border-secondary">投稿編集</span></h2>
+  </div>
+  <div class="row">
+    <div class= "col-2"></div>
+    <div class= "col-8">
+    <%= form_with model: @post, url: post_path, local:true do |f| %>
+      <table class= "table table-borderless">
+        <tr>
+          <th><%= f.label :"ラーメン画像", class:"form-label" %></th>
+          <td><%= f.file_field :post_image, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"ラーメン店名", class:"form-label" %></th>
+          <td><%= f.text_field :shop_name, class:"form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"ラーメン店住所", class:"form-label" %></th>
+          <td><%= f.text_field :address, class:"form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"紹介文", class:"form-label" %></th>
+          <td><%= f.text_area :introduction, class:"form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"ラーメンスープの味", class:"form-label" %></th>
+          <td><%= f.select :taste, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], { include_blank: true }, class: "form-select" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"麺の固さ", class:"form-label" %></th>
+          <td>
+           <%= f.select :noodle_hardness, [['ばりやわ', "ばりやわ"], ['やわ', "やわ"], ['普通', "普通"], ['硬麺', "硬麺"], ['ばり硬', "ばり硬"], ['針金', "針金"]], { include_blank: true }, class: "form-select" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            現在の評価点  <%= @post.evaluation %>点
+    
+          </th>
+          <td>
+          <div id="evaluate_stars">
+            <label class ="mr-3">評価　　</label>
+          </div>
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+        </tr>
+      </table>
+      <% end %>
+     </div>
 
 </div>
 
