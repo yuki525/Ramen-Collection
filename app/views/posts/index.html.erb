@@ -1,9 +1,11 @@
 
 <div class="container">
-  <div class='col-12 col-xl-10'>
-    <h2><strong>投稿一覧</strong></h2>
+  <div class="row">
+    <div class='col-12 col-xl-10'>
+      <h2><strong>投稿一覧</strong></h2>
+    </div>
   </div>
-
+<%= paginate @posts %>
   <div class="row">
     <div class="col">
       <%= form_with url: searchtaste_path, method: :get, local: true do |f| %>
@@ -14,28 +16,32 @@
     </div>
   </div>
 
-  <% @posts.each do |post1| %>
+
   <div class="row">
-    <div class="col">
-      <div>
+    <% @posts.each do |post1| %>
+    <div class="col-4 p-3">
+      <div class="card">
         <strong>
-        <%= link_to post_path(post1) do %>
-          <div class="my-3"><%= image_tag post1.post_image, class: "postimage" %></div>
-        <% end %>
-        <div><%= post1.shop_name %></div>
-        <div><%= post1.introduction %></div>
-        <div><%= post1.address %></div>
-        <div><%= post1.taste %></div>
-        <div><%= post1.noodle_hardness %></div>
-        <div class="post-evaluation" data-score="<%= post1.evaluation %>"></div>
-        <div> 評価<%= post1.evaluation %>点</div>
-        <div id="favorite_buttons_<%= post1.id %>">
-　　　    <%= render "favorites/favorite", post: post1 %>
-　　    </div>
+          <%= link_to post_path(post1) do %>
+            <div class="my-3"><%= image_tag post1.post_image, class: "card-img-top" %></div>
+          <% end %>
+          <div class="card-body">
+            <div><%= post1.shop_name %></div>
+            <div><%= post1.introduction %></div>
+            <div><%= post1.address %></div>
+            <div><%= post1.taste %></div>
+            <div><%= post1.noodle_hardness %></div>
+            <div class="post-evaluation" data-score="<%= post1.evaluation %>"></div>
+            <div> 評価<%= post1.evaluation %>点</div>
+            <div id="favorite_buttons_<%= post1.id %>">
+    　　　       <%= render "favorites/favorite", post: post1 %>
+    　　      </div>
+  　　      </div>
         </strong>
       </div>
-    <% end %>
+
     </div>
+    <% end %>
   </div>
 </div>
 
