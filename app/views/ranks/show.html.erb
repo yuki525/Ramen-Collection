@@ -1,14 +1,83 @@
-<% @evaluation.each.with_index(1) do |post, i| %>
-<%= link_to post_path(post) do %>
+<div class="container">
+  <div class="row">
+    <!--<div class="rankimage">-->
+    <!--  <div class="swiper-container1">-->
+    <!--    <div class="swiper-wrapper">-->
+    <!--      <div class="swiper-slide"><%#= image_tag asset_path("a.jpg") %></div>-->
+    <!--      <div class="swiper-slide"><%#= image_tag asset_path("b.jpg") %></div>-->
+    <!--      <div class="swiper-slide"><%#= image_tag asset_path("c.jpg") %></div>-->
+    <!--    </div>-->
+    <!--    <div class="swiper-pagination swiper-pagination-white"></div>-->
+    <!--  </div>-->
+    <!--</div>-->
+  </div>
 
-  <div>第<%= i %> 位</div>
-  <div class="my-3"><%= image_tag post.post_image, class: "postimage" %></div>
-  <div><%= post.shop_name %></div>
-  <div><%= post.introduction %></div>
-  <div><%= post.address %></div>
-  <div><%= post.taste %></div>
-  <div><%= post.noodle_hardness %></div>
-  <div class="post-evaluation" data-score="<%= post.evaluation %>"></div>
-  <div> 評価<%= post.evaluation %>点</div>
-<% end %>
-<% end %>
+  <div class="row">
+    <h1>評価点ランキング</h1>
+  </div>
+
+  <div class="row">
+    <%= link_to ranks_path do %>
+      <div>いいね数ランキングへ</div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <% @evaluation.each.with_index(1) do |post, i| %>
+    <div class="col-4 p-3">
+      <div class="card">
+        <div class="text-center"><h1 class="rank">第<%= i %>位</h1></div>
+        <div class="ms-3 my-1">
+          <div class="post-evaluation" data-score="<%= post.evaluation %>"></div>
+          <div> 評価<%= post.evaluation %>点</div>
+        </div>
+        <%= link_to post_path(post) do %>
+          <div class="my-3"><%= image_tag post.post_image, class: "card-img-top" %></div>
+          <h4 class="card-title border-bottom p-2"><%= post.shop_name %></h4>
+        <% end %>
+
+          <ul class="list-group list-group-flush">
+            <div class="list-group-item"><%= post.introduction %></div>
+            <div class="list-group-item ms-5"><%= post.address %></div>
+            <div class="list-group-item ms-5"><%= post.taste %></div>
+            <div class="list-group-item ms-5"><%= post.noodle_hardness %></div>
+            <div class="list-group-item ms-5">いいね件数: <%= post.favorites.count %></div>
+          </ul>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<script src="swiper.js"></script>
+<script>
+       var swiper = new Swiper('.swiper-container1', {
+         loop: true,
+         slidesPerView: 3,
+
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  speed: 2000,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+	}
+});
+
+
+</script>
+<script>
+$('.post-evaluation').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+  });
+
+  </script>
