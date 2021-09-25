@@ -1,17 +1,51 @@
-<%= link_to rank_evaluation_path do %>
-  <div>評価点ランキングへ</div>
-<% end %>
-<% @all_ranks.each.with_index(1) do |post, i| %>
-<%= link_to post_path(post) do %>
+<div class="container">
+  <div class="row">
+    <div class="rankimage">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><%= image_tag asset_path("a.jpg") %></div>
+          <div class="swiper-slide"><%= image_tag asset_path("b.jpg") %></div>
+          <div class="swiper-slide"><%= image_tag asset_path("c.jpg") %></div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-white"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to rank_evaluation_path do %>
+      <div>評価点ランキングへ</div>
+    <% end %>
+  </div>
+  <% @all_ranks.each.with_index(1) do |post, i| %>
+  <%= link_to post_path(post) do %>
 
-  <div>第<%= i %> 位</div>
-  <div class="my-3"><%= image_tag post.post_image, class: "postimage" %></div>
-  <div><%= post.shop_name %></div>
-  <div><%= post.introduction %></div>
-  <div><%= post.address %></div>
-  <div><%= post.taste %></div>
-  <div><%= post.noodle_hardness %></div>
-  <div class="post-evaluation" data-score="<%= post.evaluation %>"></div>
-  <div> 評価<%= post.evaluation %>点</div>
-<% end %>
-<% end %>
+    <div>第<%= i %> 位</div>
+    <div class="my-3"><%= image_tag post.post_image, class: "postimage" %></div>
+    <div><%= post.shop_name %></div>
+    <div><%= post.introduction %></div>
+    <div><%= post.address %></div>
+    <div><%= post.taste %></div>
+    <div><%= post.noodle_hardness %></div>
+    <div class="post-evaluation" data-score="<%= post.evaluation %>"></div>
+    <div> 評価<%= post.evaluation %>点</div>
+  <% end %>
+  <% end %>
+</div>
+
+<script src="swiper.js"></script>
+<script>
+       var swiper = new Swiper('.swiper-container', {
+         loop: true,
+         slidesPerView: 3,
+
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  speed: 2000,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+	}
+});
+</script>

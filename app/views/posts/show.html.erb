@@ -2,7 +2,6 @@
   <div class="container">
     <div class="row">
       <div class="col-4">
-
         <div class="row">
   	      <h2>投稿詳細</h2>
         </div>
@@ -28,87 +27,97 @@
             <%= image_tag @post.post_image, class: "postshowimage" %>
           </div>
 
-        <div class="row">
-          <div class="col">
-            <%= "ラーメン店名" %>
+        <div class="row border-bottom">
+          <div class="col-4">
+            <%= image_tag asset_path("shopimage.jpg"), class: 'headerimage' %>
           </div>
-          <div class="col">
-            <%= @post.shop_name %>
+          <div class="col-8 mt-3">
+            <h2><%= @post.shop_name %></h2>
           </div>
         </div>
 
-　　　　<div class="row">
-          <div class="col">
+　　　　<div class="row border-bottom">
+          <div class="col-3 ms-4">
             <%= "住所" %>
           </div>
-          <div class="col">
+          <div class="col-8">
             <%= @post.address %>
           </div>
         </div>
 
-　　　　<div class="row">
-          <div class="col">
+　　　　<div class="row border-bottom">
+          <div class="col-3 ms-4">
             <%= "スープの味" %>
           </div>
-          <div class="col">
+          <div class="col-8">
             <%= @post.taste %>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col">
+        <div class="row border-bottom">
+          <div class="col-3 ms-4">
             <%= "麺の硬さ" %>
           </div>
-          <div class="col">
+          <div class="col-8">
             <%= @post.noodle_hardness %>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col">
+        <div class="row border-bottom">
+          <div class="col-3 ms-4">
             <%= "口コミ" %>
           </div>
-          <div class="col">
+          <div class="col-8">
             <%= @post.introduction %>
           </div>
         </div>
 
-        <div class="post-evaluation" data-score="<%= @post.evaluation %>"></div>
-        <div> 評価<%= @post.evaluation %>点</div>
+        <div class="post-evaluation m-3" data-score="<%= @post.evaluation %>"></div>
+        <div class="border-bottom"> 評価<%= @post.evaluation %>点</div>
 
         <div id="favorite_buttons_<%= @post.id %>">
 　　　    <%= render "favorites/favorite", post: @post %>
 　　    </div>
 
 
-    <div>
-      <%= form_with(model:[@post, @comment], local: true) do |f| %>
-        <%= f.text_area :body %>
-        <%= f.hidden_field :post_id, value: @post.id %>
 
-        <%= f.submit 'コメントする' %>
-      <% end %>
-    </div>
 
 
   </div>
 
       <div class="col-8 mt-5">
+        <%= image_tag asset_path("mapicon.png"), class: 'headerimage' %>
         <h2>所在地</h2>
-        <div id="map", class="map rounded"></div>
+        <div id="map", class="map rounded-3"></div>
       </div>
-      <div class="col-4"></div>
+      <div class="col-4">
+        <div class="my-5">
+      <%= form_with(model:[@post, @comment], local: true) do |f| %>
+      <div class="input-group mb-3">
+        <%= f.text_area :body, class: "form-control", size: "15x10" %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+
+        <%= f.submit 'コメントする', class: "btn btn-success" %>
+      </div>
+      <% end %>
+
+    </div>
+      </div>
       <div class="col-8">
         <h1>クチコミ</h1>
         <% @comments.each do |comment| %>
         <div class="comment rounded-3 bg-light mb-4 shadow border border-1 border-light">
-          <div class="m-3">
-            <% if comment.customer.profile_image.attached? %>
-                <%= image_tag comment.customer.profile_image, class: "userimage_comment" %>
-              <% else %>
-                <%= image_tag 'no_image.jpg', size: "100x100" %>
-              <% end %>
-            <%= comment.customer.name %>
+          <div class="row">
+            <div class="col-1 m-3">
+              <% if comment.customer.profile_image.attached? %>
+                  <%= image_tag comment.customer.profile_image, class: "userimage_comment" %>
+                <% else %>
+                  <%= image_tag 'no_image.jpg', size: "100x100" %>
+                <% end %>
+            </div>
+            <div class="col-4 mt-4">
+              <%= comment.customer.name %>
+            </div>
           </div>
           <div class="ms-5">
             <%= comment.body%>
@@ -137,12 +146,6 @@
     starHalf: "<%= asset_path('star-half.png') %>",
   });
 </script>
-
-<style type="text/css">
-  #map { height: 80%;
-         width: 100%;}
-</style>
-
 
 
 <!--グーグルマップ表示-->

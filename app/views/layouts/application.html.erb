@@ -21,7 +21,7 @@
             <div class="col h1 mt-1" href="/">
               <%= link_to  root_path, class: "homelink" do %>
                 <!--<img src="/assets/icon2.jpg" class="rounded-circle"　alt="" width="40" height="40">-->
-                <%= image_tag asset_path("icon2.jpg"), class: 'headerimage' %>
+                <%= image_tag asset_path("icon3.png"), class: 'headerimage' %>
                 <span>Ramen Collection</span>
               <% end %>
             </div>
@@ -32,20 +32,18 @@
                 <%= render 'layouts/header' %>
             </div>
           </div>
-
+          <%= form_with url: search_path, method: :get, local: true do |f| %>
           <div class="row justify-content-end ">
-            <div class="col-6 my-3">
-              <div class="search-form">
-                <%= form_with url: search_path, method: :get, local: true do |f| %>
+            <div class="col-3 my-3">
 
                   <%= f.text_field :keyword, value: @keyword, class:"form-control" %>
-                  <%= f.submit "検索", class:"btn btn-success flex-shrink-0" %>
-
-                <% end %>
+               </div>
+              <div class="col-1 my-3">
+                <%= f.submit "検索", class:"btn btn-success flex-shrink-0" %>
               </div>
-            </div>
-          </div>
 
+          </div>
+          <% end %>
         </div>
       </nav>
     </header>

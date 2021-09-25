@@ -1,21 +1,24 @@
 
 <div class="container">
-  <div class="row">
+  <div class="row m-3">
     <div class='col-12 col-xl-10'>
-      <h2><strong>投稿一覧</strong></h2>
+      <h1 class="fas fa-list-alt"><strong>投稿一覧</strong></h1>
     </div>
   </div>
 <%= paginate @posts %>
-  <div class="row">
-    <div class="col">
-      <%= form_with url: searchtaste_path, method: :get, local: true do |f| %>
-      <%= f.label :スープの味を選択してください %>
-      　<%= f.select :taste1, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], include_blank: "選択して下さい" %>
-        <%= f.submit "絞り込み", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
+<%= form_with url: searchtaste_path, method: :get, local: true do |f| %>
+<%= f.label :"スープの味を選択してください", class: "form-label mt-4" %>
+  <div class="row ">
 
+    <div class="col-3">
+      　<%= f.select :taste1, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], { include_blank: true }, class: "form-select" %>
+    </div>
+    <div class="col-3 mt-4">
+      <%= f.submit "絞り込み", class: "btn btn-primary" %>
+    </div>
+
+  </div>
+  <% end %>
 
   <div class="row">
     <% @posts.each do |post1| %>
@@ -23,19 +26,24 @@
       <div class="card">
         <strong>
           <%= link_to post_path(post1) do %>
-            <div class="my-3"><%= image_tag post1.post_image, class: "card-img-top" %></div>
+            <div class=""><%= image_tag post1.post_image, class: "card-img-top" %></div>
           <% end %>
           <div class="card-body">
-            <div><%= post1.shop_name %></div>
-            <div><%= post1.introduction %></div>
-            <div><%= post1.address %></div>
-            <div><%= post1.taste %></div>
-            <div><%= post1.noodle_hardness %></div>
-            <div class="post-evaluation" data-score="<%= post1.evaluation %>"></div>
-            <div> 評価<%= post1.evaluation %>点</div>
-            <div id="favorite_buttons_<%= post1.id %>">
-    　　　       <%= render "favorites/favorite", post: post1 %>
-    　　      </div>
+            <h4 class="card-title border-bottom p-2"><%= post1.shop_name %></h4>
+            <ul class="list-group list-group-flush">
+              <div class="list-group-item ms-3">住所　<%= post1.address %></div>
+              <div class="list-group-item ms-5"><%= post1.introduction %></div>
+
+              <div class="list-group-item ms-5">スープの種類　<%= post1.taste %></div>
+              <div class="list-group-item ms-5">麺の硬さ　<%= post1.noodle_hardness %></div>
+              <div class="post-evaluation mt-3 ms-5" data-score="<%= post1.evaluation %>"></div>
+              <div class="list-group-item ms-5"> 評価<%= post1.evaluation %>点</div>
+              <% if customer_signed_in? %>
+              <div id="favorite_buttons_<%= post1.id %>">
+      　　　       <%= render "favorites/favorite", post: post1 %>
+      　　      </div>
+      　　          <% end %>
+    　　      </ul>
   　　      </div>
         </strong>
       </div>
