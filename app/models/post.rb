@@ -13,7 +13,7 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorited_customers, through: :favorites, source: :customer
 
   geocoded_by :address
