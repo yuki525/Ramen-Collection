@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_customer!
+
   def index
     @user = current_customer
     @posts = @user.posts
@@ -10,8 +13,11 @@ class UsersController < ApplicationController
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
-    redirect_to users_path
+    if @customer.update(customer_params)
+      redirect_to users_path
+    else
+      render "edit"
+    end
   end
 
   private

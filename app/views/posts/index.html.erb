@@ -1,5 +1,15 @@
 
 <div class="container">
+
+  <!--ログイン成功メッセージ-->
+  <% if flash[:notice] %>
+    <p class="notice alert alert-success"><%= flash[:notice] %></p>
+  <% end %>
+  <!--ログイン失敗メッセージ-->
+  <% if flash[:alert] %>
+    <p class="alert alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
+
   <div class="row m-3">
     <div class='col-12 col-xl-10'>
       <h1 class="fas fa-list-alt"><strong>投稿一覧</strong></h1>
@@ -38,11 +48,13 @@
               <div class="list-group-item ms-5">麺の硬さ　<%= post1.noodle_hardness %></div>
               <div class="post-evaluation mt-3 ms-5" data-score="<%= post1.evaluation %>"></div>
               <div class="list-group-item ms-5"> 評価<%= post1.evaluation %>点</div>
-              <% if customer_signed_in? %>
-              <div id="favorite_buttons_<%= post1.id %>">
-      　　　       <%= render "favorites/favorite", post: post1 %>
+              <div class="list-group-item ms-5">
+                <% if customer_signed_in? %>
+                <div id="favorite_buttons_<%= post1.id %>">
+        　　　       <%= render "favorites/favorite", post: post1 %>
+        　　      </div>
+        　　      <% end %>
       　　      </div>
-      　　          <% end %>
     　　      </ul>
   　　      </div>
         </strong>

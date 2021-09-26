@@ -1,4 +1,14 @@
 <div class = "container mx-auto">
+
+  <!--ログイン成功メッセージ-->
+  <% if flash[:notice] %>
+    <p class="notice alert alert-success"><%= flash[:notice] %></p>
+  <% end %>
+  <!--ログイン失敗メッセージ-->
+  <% if flash[:alert] %>
+    <p class="alert alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
+
   <div class = "row">
     <div class = "col-2">
     　<div>
