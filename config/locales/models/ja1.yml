@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      customer: 会員
+    attributes:
+      customer:
+        email: メールアドレス
+        name: 名前
+        address: 住所
+        postcode: 郵便番号
+        password: パスワード

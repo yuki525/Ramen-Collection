@@ -1,4 +1,14 @@
 <div class="container mt-5">
+  <!--エラーメッセージ表示-->
+  <% if @customer.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <%= @customer.errors.count %>個のエラーあり
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="row mx-auto">
     <div class="col">
       <h2 class="fas fa-wrench m-5 rounded p-3 border border-secondary">会員情報編集</h2>
@@ -25,7 +35,7 @@
       </div>
     </div>
 
-    <div class="mb-3 row">
+    <div class="row mb-3">
       <%= f.label :"メールアドレス", class:"col-sm-3 col-form-label" %>
       <div class="col-sm-4">
         <%= f.text_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
@@ -33,12 +43,15 @@
     </div>
 
     <div class = "row">
-      <div class = "col">
-        <%= f.label :"プロフィール画像" %>
-        <%= f.file_field :profile_image %>
+      <div class = "col-3">
+        <%= f.label :"プロフィール画像", class:"form-label" %>
+      </div>
+      <div class = "col-8">
+        <%= f.file_field :profile_image, class: "form-control" %>
       </div>
     </div>
-    <div class="mb-3 row">
+
+    <div class="row m-5">
       <div class="col-sm-3">
       </div>
       <div class="col-sm-6">

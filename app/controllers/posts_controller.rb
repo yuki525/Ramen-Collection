@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_customer!, {only: [:show, :new, :new, :edit, :update]}
+
   def index
     @posts = Post.page(params[:page]).per(9)
   end
@@ -31,8 +33,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
+
+    if @post.update(post_params) #投稿成功した場合と失敗した場合で条件分岐
     redirect_to users_path
+    else
+    render "edit"
+    end
   end
 
   def edit

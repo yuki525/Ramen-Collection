@@ -4,6 +4,7 @@
     <h1>ログイン</h1>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "customers/shared/error_messages", resource: resource %>
       <div class="field">
         <%= f.label :メールアドレス, class: "form-label" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレス" %>
