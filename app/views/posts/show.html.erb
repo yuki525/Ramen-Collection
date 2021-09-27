@@ -1,9 +1,9 @@
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row mt-3">
       <div class="col-4">
         <div class="row">
-  	      <h2>投稿詳細</h2>
+  	      <h1>投稿詳細</h1>
         </div>
 
         <div class="row">
@@ -21,9 +21,6 @@
         </div>
 
           <div class="my-3">
-             <%# @post.post_image.each do |portrait| %>
-              <%#= image_tag portrait.variant(resize_to_limit: [100, 100]) %>
-            <%# end %>
             <%= image_tag @post.post_image, class: "postshowimage" %>
           </div>
 

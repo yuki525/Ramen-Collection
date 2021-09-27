@@ -133,3 +133,37 @@
   background-color: #ffd1a3;
   font-family: Impact;
 }
+
+.full {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url(asset_path("about3.jpg"))
+    center / cover;
+}
+
+.ht1 {
+  margin: 0;
+  position: absolute;
+  top: calc(50% - 0.5em);
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  font-size: 8vw;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 10px 10px 0 #fff;
+}
+
+.text{
+  background-color:#f7e1b0;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+}
+
+.swiper-slide{
+    object-fit: cover; /* IE: not support */
+   width: 100%;
+   height: auto;
+    }
