@@ -1,25 +1,21 @@
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><%= image_tag asset_path("a.jpg") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("b.jpg") %></div>
-    <div class="swiper-slide"><%= image_tag asset_path("c.jpg") %></div>
-  </div>
-  <div class="swiper-pagination swiper-pagination-white"></div>
+<div class="full">
+
+  <h1 class="ht1">
+    RAMEN-COLLECTION</br>
+  </h1>
+
+</div>
+<div class="text">
+  <h1 class="ht4 text-center p-5">
+      <strong>ラーメンを食べよう!</strong>
+  </h1>
+  <h2 class="ht4 text-center p-5">
+  醤油、豚骨、塩、鶏白湯、味噌....等々、ラーメンにはたくさんの種類があります。</br>
+  それほどたくさんの種類があり研究されている、魅力的なラーメンをみんなで共有したいと思い</br>
+  このサイトを作成しました。</br>
+  自分の好みのラーメンを見つけてラーメンを食べに行こう！
+ </h2>
+
+ <%= image_tag asset_path("aboutimage.jpg"), class: "full" %>
 </div>
 
-<script src="swiper.js"></script>
-<script>
-       var swiper = new Swiper('.swiper-container', {
-         loop: true,
-  effect: 'fade',
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-  speed: 2000,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-	}
-});
-</script>

@@ -21,9 +21,9 @@
   <div class="row ">
 
     <div class="col-3">
-      　<%= f.select :taste1, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], { include_blank: true }, class: "form-select" %>
+       <%= f.select :taste1, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], { include_blank: true }, class: "form-select" %>
     </div>
-    <div class="col-3 mt-4">
+    <div class="col-3">
       <%= f.submit "絞り込み", class: "btn btn-primary" %>
     </div>
 
@@ -41,22 +41,22 @@
           <div class="card-body">
             <h4 class="card-title border-bottom p-2"><%= post1.shop_name %></h4>
             <ul class="list-group list-group-flush">
-              <div class="list-group-item ms-3">住所　<%= post1.address %></div>
+              <div class="list-group-item ms-3">住所 <%= post1.address %></div>
               <div class="list-group-item ms-5"><%= post1.introduction %></div>
 
-              <div class="list-group-item ms-5">スープの種類　<%= post1.taste %></div>
-              <div class="list-group-item ms-5">麺の硬さ　<%= post1.noodle_hardness %></div>
+              <div class="list-group-item ms-5">スープの種類 <%= post1.taste %></div>
+              <div class="list-group-item ms-5">麺の硬さ <%= post1.noodle_hardness %></div>
               <div class="post-evaluation mt-3 ms-5" data-score="<%= post1.evaluation %>"></div>
               <div class="list-group-item ms-5"> 評価<%= post1.evaluation %>点</div>
               <div class="list-group-item ms-5">
                 <% if customer_signed_in? %>
                 <div id="favorite_buttons_<%= post1.id %>">
-        　　　       <%= render "favorites/favorite", post: post1 %>
-        　　      </div>
-        　　      <% end %>
-      　　      </div>
-    　　      </ul>
-  　　      </div>
+                  <%= render "favorites/favorite", post: post1 %>
+                </div>
+                <% end %>
+              </div>
+            </ul>
+          </div>
         </strong>
       </div>
 
