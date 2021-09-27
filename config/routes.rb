@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   # passwords:     'admins/passwords',
@@ -24,5 +27,10 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   get '/rank/evaluation' => 'ranks#show'
   get '/searchtaste' => 'searches#search'
+
+
+  get   'inquiry'         => 'inquiry#index'     # 入力画面
+  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
