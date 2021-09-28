@@ -1,74 +1,73 @@
-<body>
-  <div class="container">
+<div class="container">
 
-    <div class="row mt-3">
-      <div class="col-4">
-        <h1 class="rounded-pill border text-center fas fa-users p-3">マイページ</h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-4 border-start border-end">
-        <h2 class="my-5 border-bottom">登録情報</h2>
-        <div class="m-5">
-          <% if @user.profile_image.attached? %>
-            <%= image_tag @user.profile_image, class: "userimage" %>
-          <% else %>
-            <%= image_tag 'no_image.jpg', size: "100x100" %>
-          <% end %>
-        </div>
-        <table class="table">
-          <tr>
-            <th>氏名</th>
-            <td><%= @user.name %></td>
-          </tr>
-          <tr>
-            <th>郵便番号</th>
-            <td><%= @user.postcode %></td>
-          </tr>
-          <tr>
-            <th>住所</th>
-            <td><%= @user.address %></td>
-          </tr>
-          <tr>
-            <th>メールアドレス</th>
-            <td><%= @user.email %></td>
-          </tr>
-        </table>
-        <div class="m-5">
-          <%= link_to "編集する", edit_user_path(current_customer), class:"btn btn-success" %>
-        </div>
-      </div>
-
-      <div class = "col-8">
-        <h1 class="bg-warning">自分の投稿</h1>
-        <table class="table table-warning table-striped">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">ラーメン店名</th>
-              <th scope="col">ラーメン店住所</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <% @posts.each do |post| %>
-          <tr>
-            <td><%= image_tag post.post_image, class: "postimage" %></td>
-            <td align="center" valign="middle"><%= post.shop_name %></td>
-            <td align="center" valign="middle"><%= post.address %></td>
-            <td align="center" valign="middle">
-              <%= link_to "編集する", edit_post_path(post.id), class: "btn btn-outline-primary rounded-pill m-3" %>
-              <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger rounded-pill m-3" %>
-            </td>
-          </tr>
-          <% end %>
-        </table>
-
-      </div>
-
+  <div class="row mt-3">
+    <div class="col-4">
+      <h1 class="rounded-pill border text-center fas fa-users p-3">マイページ</h1>
     </div>
   </div>
-</body>
+
+  <div class="row">
+    <div class="col-4 border-start border-end">
+      <h2 class="my-5 border-bottom">登録情報</h2>
+      <div class="m-5">
+        <% if @user.profile_image.attached? %>
+          <%= image_tag @user.profile_image, class: "userimage" %>
+        <% else %>
+          <%= image_tag 'no_image.jpg', size: "100x100" %>
+        <% end %>
+      </div>
+      <table class="table">
+        <tr>
+          <th>氏名</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @user.postcode %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+      </table>
+      <div class="m-5">
+        <%= link_to "編集する", edit_user_path(current_customer), class:"btn btn-success" %>
+      </div>
+    </div>
+
+    <div class = "col-8">
+      <h1 class="bg-warning">自分の投稿</h1>
+      <table class="table table-warning table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">ラーメン店名</th>
+            <th scope="col">ラーメン店住所</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <% @posts.each do |post| %>
+        <tr>
+          <td><%= image_tag post.post_image, class: "postimage" %></td>
+          <td align="center" valign="middle"><%= post.shop_name %></td>
+          <td align="center" valign="middle"><%= post.address %></td>
+          <td align="center" valign="middle">
+            <%= link_to "編集する", edit_post_path(post.id), class: "btn btn-outline-primary rounded-pill m-3" %>
+            <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger rounded-pill m-3" %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+
+    </div>
+
+  </div>
+</div>
+
 
 
 

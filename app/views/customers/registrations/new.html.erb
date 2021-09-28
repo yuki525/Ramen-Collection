@@ -4,49 +4,49 @@
     <div class="col-6 border border-top-0 mt-5">
       <h1>新規登録</h1>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "customers/shared/error_messages", resource: resource %>
-  　 <div class="field">
-      <%= f.label :名前, class: "form-label" %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "名前" %>
-    </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "customers/shared/error_messages", resource: resource %>
+      　<div class="field">
+          <%= f.label :名前, class: "form-label" %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "名前" %>
+        </div>
 
-    <div class="field">
-      <%= f.label :メールアドレス, class: "form-label" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレス" %>
-    </div>
+        <div class="field">
+          <%= f.label :メールアドレス, class: "form-label" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレス" %>
+        </div>
 
-     <div class="field">
-      <%= f.label :郵便番号, class: "form-label" %><br />
-      <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "form-control", placeholder: "郵便番号" %>
-    </div>
+        <div class="field">
+          <%= f.label :郵便番号, class: "form-label" %><br />
+          <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "form-control", placeholder: "郵便番号" %>
+        </div>
 
-     <div class="field">
-      <%= f.label :住所, class: "form-label" %><br />
-      <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control", placeholder: "住所" %>
-    </div>
+        <div class="field">
+          <%= f.label :住所, class: "form-label" %><br />
+          <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "form-control", placeholder: "住所" %>
+        </div>
 
-    <div class="field">
-      <%= f.label :パスワード, class: "form-label" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> 文字以上)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード" %>
-    </div>
+        <div class="field">
+          <%= f.label :パスワード, class: "form-label" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード" %>
+        </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "パスワード(確認用)" %>
-    </div>
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "パスワード(確認用)" %>
+        </div>
 
-    <div class="row justify-content-end">
-      <div class="col-2">
-        <%= f.submit "Sign up", class: "btn btn-outline-success rounded-pill" %>
-      </div>
-    </div>
-  <% end %>
+        <div class="row justify-content-end">
+          <div class="col-2">
+            <%= f.submit "Sign up", class: "btn btn-outline-success rounded-pill" %>
+          </div>
+        </div>
+      <% end %>
 
-  <%= render "customers/shared/links" %>
+    <%= render "customers/shared/links" %>
     </div>
   </div>
 </div>

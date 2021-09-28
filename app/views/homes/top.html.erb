@@ -29,31 +29,30 @@
 
     <div class = "col-10 mt-5">
       <div class="swiper-container">
-         <div class="swiper-wrapper">
-           <div class="swiper-slide"><%= image_tag asset_path("a.jpg") %></div>
-           <div class="swiper-slide"><%= image_tag asset_path("b.jpg") %></div>
-           <div class="swiper-slide"><%= image_tag asset_path("c.jpg") %></div>
-         </div>
-
-         <div class="swiper-pagination swiper-pagination-white"></div>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><%= image_tag asset_path("a.jpg") %></div>
+          <div class="swiper-slide"><%= image_tag asset_path("b.jpg") %></div>
+          <div class="swiper-slide"><%= image_tag asset_path("c.jpg") %></div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-white"></div>
       </div>
     </div>
   </div>
-<script src="swiper.js"></script>
-<script>
-       var swiper = new Swiper('.swiper-container', {
-         loop: true,
-  effect: 'fade',
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-  speed: 2000,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-	}
-});
-</script>
+  <script src="swiper.js"></script>
+  <script>
+         var swiper = new Swiper('.swiper-container', {
+           loop: true,
+    effect: 'fade',
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    speed: 2000,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+  	}
+  });
+  </script>
 
 </div>
