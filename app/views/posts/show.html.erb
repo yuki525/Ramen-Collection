@@ -6,16 +6,18 @@
       </div>
 
       <div class="row">
-        <div class="col">
-      	  <%= "投稿ユーザー" %>
+        <div class="col-3">
+      	  <h6><%= "投稿ユーザー" %></h6>
       	</div>
-      	<div class="col">
+      	<div class="col-8 d-flex">
       	  <% if @customer.profile_image.attached? %>
             <%= image_tag @customer.profile_image, class: "userimage" %>
           <% else %>
             <%= image_tag 'no_image.jpg', size: "100x100" %>
           <% end %>
-      	  <%= @customer.name %>
+          <h2 class="mt-4 ms-3">
+      	    <%= @customer.name %>
+      	  </h2>
       	</div>
       </div>
 
@@ -32,7 +34,7 @@
         </div>
       </div>
 
-　　　　<div class="row border-bottom">
+    <div class="row border-bottom">
         <div class="col-3 ms-4">
           <%= "住所" %>
         </div>
@@ -41,7 +43,7 @@
         </div>
       </div>
 
-　　　　<div class="row border-bottom">
+    <div class="row border-bottom">
         <div class="col-3 ms-4">
           <%= "スープの味" %>
         </div>
@@ -71,9 +73,9 @@
       <div class="post-evaluation m-3" data-score="<%= @post.evaluation %>"></div>
       <div class="border-bottom"> 評価<%= @post.evaluation %>点</div>
 
-      <div id="favorite_buttons_<%= @post.id %>">
-　　　    <%= render "favorites/favorite", post: @post %>
-　　    </div>
+      <div id="favorite_buttons_<%= @post.id %>", class="mt-3">
+       <%= render "favorites/favorite", post: @post %>
+      </div>
 
 </div>
 
@@ -96,7 +98,7 @@
   </div>
     </div>
     <div class="col-8">
-      <h1>クチコミ</h1>
+      <h1 class="fas fa-comments">クチコミ</h1>
       <% @comments.each do |comment| %>
       <div class="comment rounded-3 bg-light mb-4 shadow border border-1 border-light">
         <div class="row">
