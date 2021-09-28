@@ -1,33 +1,33 @@
 <div class="container">
   <div class="row mx-auto" style="width:600px;" >
     <div class="col border border-top-0 mt-5">
-    <h1>ログイン</h1>
+      <h1>ログイン</h1>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render "customers/shared/error_messages", resource: resource %>
-      <div class="field">
-        <%= f.label :メールアドレス, class: "form-label" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレス" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :パスワード, class: "form-label" %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "パスワード" %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render "customers/shared/error_messages", resource: resource %>
         <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= f.label :メールアドレス, class: "form-label" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレス" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :パスワード, class: "form-label" %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "パスワード" %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="row justify-content-end">
+          <div class="col-2">
+            <%= f.submit "Log in", class: "btn btn-outline-primary rounded-pill" %>
+          </div>
         </div>
       <% end %>
-
-      <div class="row justify-content-end">
-        <div class="col-2">
-          <%= f.submit "Log in", class: "btn btn-outline-primary rounded-pill" %>
-        </div>
-      </div>
-    <% end %>
       <div class="mb-5">
         <%= render "customers/shared/links" %>
       </div>

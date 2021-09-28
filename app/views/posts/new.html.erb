@@ -1,6 +1,6 @@
-<body>
-  <div class="container">
-     <% if @posts.errors.any? %>
+<div class="container">
+
+  <% if @posts.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <%= @posts.errors.count %>個のエラーあり
       <% @posts.errors.full_messages.each do |msg| %>
@@ -8,56 +8,60 @@
       <% end %>
     </div>
   <% end %>
-    <div class="row">
-      <h2><span class="fas fa-plus m-5 rounded p-3 border border-secondary">新規投稿</span></h2>
-    </div>
-    <div class=" row">
-      <div class= "col-2"></div>
-      <div class="col-8">
-       <%= form_with(model: @posts, url: posts_path, local: true) do |f| %>
-       <table class= "table table-borderless">
-         <tr>
-           <th><%= f.label :"ラーメン画像", class:"form-label" %></th>
-           <td><%= f.file_field :post_image, class: "form-control" %></td>
-         </tr>
-         <tr>
-           <th><%= f.label :"ラーメン店名", class:"form-label" %></th>
-           <td><%= f.text_field :shop_name, class:"form-control" %></td>
-         </tr>
-         <tr>
-           <th><%= f.label :"ラーメン店住所", class:"form-label" %></th>
-           <td><%= f.text_field :address, class:"form-control" %></td>
-         </tr>
-         <tr>
-           <th><%= f.label :"紹介文", class:"form-label" %></th>
-           <td><%= f.text_area :introduction, class:"form-control" %></td>
-         </tr>
-         <tr>
-           <th><%= f.label :"ラーメンスープの味", class:"form-label" %></th>
-           <td><%= f.select :taste, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], { include_blank: true }, class: "form-select" %></td>
-         </tr>
-         <tr>
-           <th><%= f.label :"麺の固さ", class:"form-label" %></th>
-           <td>
+
+  <div class="row">
+    <h2><span class="fas fa-plus m-5 rounded p-3 border border-secondary">新規投稿</span></h2>
+  </div>
+
+  <div class=" row">
+    <div class= "col-2"></div>
+    <div class="col-8">
+      <%= form_with(model: @posts, url: posts_path, local: true) do |f| %>
+      <table class= "table table-borderless">
+        <tr>
+          <th><%= f.label :"ラーメン画像", class:"form-label" %></th>
+          <td><%= f.file_field :post_image, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"ラーメン店名", class:"form-label" %></th>
+          <td><%= f.text_field :shop_name, class:"form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"ラーメン店住所", class:"form-label" %></th>
+          <td><%= f.text_field :address, class:"form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"紹介文", class:"form-label" %></th>
+          <td><%= f.text_area :introduction, class:"form-control" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"ラーメンスープの味", class:"form-label" %></th>
+          <td><%= f.select :taste, [['醤油', "醤油"], ['塩', "塩"], ['味噌', "味噌"], ['豚骨', "豚骨"], ['鶏白湯', "鶏白湯"], ['つけ麺', "つけ麺"], ['油そば', "油そば"], ['その他', "その他"]], { include_blank: true }, class: "form-select" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :"麺の固さ", class:"form-label" %></th>
+          <td>
             <%= f.select :noodle_hardness, [['ばりやわ', "ばりやわ"], ['やわ', "やわ"], ['普通', "普通"], ['硬麺', "硬麺"], ['ばり硬', "ばり硬"], ['針金', "針金"]], { include_blank: true }, class: "form-select" %>
-           </td>
-         </tr>
-         <tr>
-           <th>評価点</th>
-           <td>
+          </td>
+        </tr>
+        <tr>
+          <th>評価点</th>
+          <td>
             <div id="evaluate_stars">
               <label class ="mr-3">評価　　</label>
             </div>
-           </td>
-         </tr>
-         <tr>
-           <th></th>
-           <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
-         </tr>
-       </table>
-     </div>
-   <% end %>
-</body>
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+
 
 <script>
   $('#evaluate_stars').raty({
