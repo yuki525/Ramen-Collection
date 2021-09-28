@@ -14,54 +14,15 @@
 
   <body>
     <header>
-      <nav class="bg-warning sticky-top">
-        <div class="container">
-          <div class = "row ">
-            <div class="col h1 mt-1" href="/">
-              <%= link_to  root_path, class: "homelink" do %>
-                <!--<img src="/assets/icon2.jpg" class="rounded-circle"　alt="" width="40" height="40">-->
-                <%= image_tag asset_path("icon3.png"), class: 'headerimage' %>
-                <span>Ramen Collection</span>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="row justify-content-end">
-            <div class="col-8 mr-5">
-                <%= render 'layouts/header' %>
-            </div>
-          </div>
-          <%= form_with url: search_path, method: :get, local: true do |f| %>
-          <div class="row justify-content-end ">
-            <div class="col-3 my-3">
-
-                  <%= f.text_field :keyword, value: @keyword, class:"form-control" %>
-               </div>
-              <div class="col-1 my-3">
-                <%= f.submit "検索", class:"btn btn-success flex-shrink-0" %>
-              </div>
-
-          </div>
-          <% end %>
-        </div>
-      </nav>
+      <%= render 'layouts/header' %>
     </header>
 
     <main>
-
       <%= yield %>
     </main>
 
-    <footer class="bg-warning pt-2 pb-2 mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col text-center">
-            <%= link_to 'お問い合わせ', inquiry_path, class: 'btn btn-light btnx-red-light rounded-pill mt-2' %>
-            <p class="text-center mt-3">©2021 All rights reserved by Ramen-Collection.</p>
-
-          </div>
-        </div>
-      </div>
+    <footer class=" pt-2 pb-2 mt-5">
+      <%= render 'layouts/footer' %>
     </footer>
   </body>
 </html>
