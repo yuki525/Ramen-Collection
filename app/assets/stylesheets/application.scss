@@ -18,6 +18,14 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+footer{
+  background-color:#ffcd42;
+}
+
+header{
+  background-color:#ffcd42;
+}
+
 .swiper-container {
   position: relative;
   overflow: hidden;
@@ -83,12 +91,13 @@
     border-radius: 10px;
 }
 .postshowimage{
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
 
 }
+//googlemaps
 .map{
   width: 1000px;
     height: 600px;
@@ -159,13 +168,5 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-
 }
 
-footer{
-  background-color:#ffcd42;
-}
-
-header{
-  background-color:#ffcd42;
-}
