@@ -35,9 +35,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update(post_params) #投稿成功した場合と失敗した場合で条件分岐
-    redirect_to users_path
+      redirect_to users_path
     else
-    render "edit"
+      render "edit"
     end
   end
 
