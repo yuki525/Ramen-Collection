@@ -5,6 +5,6 @@ class RanksController < ApplicationController
 
   def show
     #評価が高い順に投稿を取得
-   @evaluation = Post.order("evaluation DESC").limit(4)
+    @evaluation = Post.order("evaluation DESC").limit(4)
   end
 end
