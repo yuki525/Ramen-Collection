@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-4">
+    <div class="col-12 col-lg-4">
       <div class="row mb-3">
 	      <h1 class="fas fa-info-circle">投稿詳細</h1>
       </div>
@@ -79,25 +79,26 @@
 
 </div>
 
-    <div class="col-8 mt-5">
+    <div class="col-12 col-lg-8 mt-5">
       <%= image_tag asset_path("mapicon.png"), class: 'headerimage' %>
       <h2>所在地</h2>
       <div id="map", class="map rounded-3"></div>
     </div>
-    <div class="col-4">
+
+    <div class="col-12 col-lg-4">
       <div class="my-5">
-    <%= form_with(model:[@post, @comment], local: true) do |f| %>
-    <div class="input-group mb-3">
-      <%= f.text_area :body, class: "form-control", size: "15x10" %>
-      <%= f.hidden_field :post_id, value: @post.id %>
+        <%= form_with(model:[@post, @comment], local: true) do |f| %>
+          <div class="input-group mb-3">
+            <%= f.text_area :body, class: "form-control", size: "15x10" %>
+            <%= f.hidden_field :post_id, value: @post.id %>
 
-      <%= f.submit 'コメントする', class: "btn btn-success" %>
+            <%= f.submit 'コメントする', class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <% end %>
 
-  </div>
-    </div>
-    <div class="col-8">
+    <div class="col-12 col-lg-8 mt-lg-5">
       <h1 class="fas fa-comments">クチコミ</h1>
       <% @comments.each do |comment| %>
       <div class="comment rounded-3 bg-light mb-4 shadow border border-1 border-light">
@@ -129,7 +130,7 @@
 </div>
 
 
-
+<!--★評価-->
 <script>
   $('.post-evaluation').raty({
     readOnly: true,

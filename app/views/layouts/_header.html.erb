@@ -1,4 +1,4 @@
-      <nav class="sticky-top">
+
         <div class="container">
           <div class = "row ">
             <div class="col h1 mt-1" href="/">
@@ -9,24 +9,31 @@
             </div>
           </div>
 
+          <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #ffcd42;">
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="レスポンシブ・ナビゲーションバー">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+           <div class="collapse navbar-collapse" id="Navber">
           <div class="row text-end">
-            <div class="col-12">
+            <div class="col-4 col-lg-12 center-block">
               <% if customer_signed_in? %>
-                <%= link_to 'マイページ', users_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to 'ランキング', ranks_path, class: 'fas fa-crown btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to '投稿一覧', posts_path, class: 'fas fa-list-alt btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to '新規投稿',new_post_path, class: 'fas fa-plus btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'fas fa-sign-out-alt btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to 'お問い合わせ', inquiry_path, class: 'fas fa-phone-volume btn btn-light btnx-red-light rounded-pill' %>
+                <%= link_to 'マイページ', users_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to 'ランキング', ranks_path, class: 'fas fa-crown btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to '投稿一覧', posts_path, class: 'fas fa-list-alt btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to '新規投稿',new_post_path, class: 'fas fa-plus btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'fas fa-sign-out-alt btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to 'お問い合わせ', inquiry_path, class: 'fas fa-phone-volume btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
               <% else %>
-                <%= link_to 'About', about_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to '投稿一覧', posts_path, class: 'fas fa-list-ol btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to '新規登録', new_customer_registration_path, class: 'fas fa-user-plus btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to 'ログイン', new_customer_session_path, class: 'fas fa-sign-in-alt btn btn-light btnx-red-light rounded-pill' %>
-                <%= link_to 'お問い合わせ', inquiry_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill' %>
+                <%= link_to 'About', about_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to '投稿一覧', posts_path, class: 'fas fa-list-ol btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to '新規登録', new_customer_registration_path, class: 'fas fa-user-plus btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to 'ログイン', new_customer_session_path, class: 'fas fa-sign-in-alt btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
+                <%= link_to 'お問い合わせ', inquiry_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
               <% end %>
             </div>
           </div>
+          </div>
+          </nav>
           <%= form_with url: search_path, method: :get, local: true do |f| %>
           <div class="row justify-content-end ">
             <div class="col-3 my-3">
@@ -38,4 +45,3 @@
           </div>
           <% end %>
         </div>
-      </nav>

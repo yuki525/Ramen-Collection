@@ -122,7 +122,7 @@ header{
   margin: 20px;
 }
 
-#map { height: 80%;
+#map { height: 40vw;
          width: 100%;}
 
 .rankimage{
@@ -143,11 +143,19 @@ header{
   font-family: Impact;
 }
 
-.full {
+.about-top {
   position: relative;
   width: 100%;
   min-height: 100vh;
   background: url(asset_path("about3.jpg"))
+    center / cover;
+}
+
+.about-bottom {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background: url(asset_path("aboutimage.jpg"))
     center / cover;
 }
 
@@ -177,3 +185,22 @@ header{
       object-fit: cover;
 }
 
+.row_table,
+.row_table td,
+.row_table th {
+
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.row_table th {
+  padding: 4px 12px;
+  display: block;
+  width: 100%
+}
+
+.row_table td {
+  padding: 4px 12px;
+  display: block;
+  width: 100%;
+}
