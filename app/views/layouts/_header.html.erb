@@ -9,13 +9,13 @@
             </div>
           </div>
 
-          <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #ffcd42;">
+          <nav class="navbar navbar-expand-lg navbar-light sticky-top " style="background-color: #ffcd42;">
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="レスポンシブ・ナビゲーションバー">
             <span class="navbar-toggler-icon"></span>
           </button>
-           <div class="collapse navbar-collapse" id="Navber">
-          <div class="row text-end">
-            <div class="col-4 col-lg-12 center-block">
+          <div class="collapse navbar-collapse ml-auto" id="Navber">
+          <div class="row">
+            <div class="col-4 col-lg-12 ">
               <% if customer_signed_in? %>
                 <%= link_to 'マイページ', users_path, class: 'fas fa-users btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>
                 <%= link_to 'ランキング', ranks_path, class: 'fas fa-crown btn btn-light btnx-red-light rounded-pill m-2 m-lg-0' %>

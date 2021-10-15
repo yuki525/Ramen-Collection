@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    # @favorite = current_customer.favorites.create(post_id: params[:post_id])
     @favorite = current_customer.favorites.new(post_id: @post.id)
     @favorite.save
   end
