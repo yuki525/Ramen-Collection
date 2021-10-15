@@ -1,5 +1,6 @@
 class RanksController < ApplicationController
   def index
+    #いいね数が多い順に投稿を取得
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(20).pluck(:post_id)) #いいね数が多い順に投稿を取得
   end
 
