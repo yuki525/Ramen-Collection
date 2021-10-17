@@ -1,62 +1,66 @@
 <div class="container mt-5 mb-5">
-  <!--エラーメッセージ表示-->
-  <% if @customer.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <%= @customer.errors.count %>個のエラーあり
-      <% @customer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+  <div class="row">
+    <div class="col-12 col-lg-10 offset-lg-1 ">
+      <!--エラーメッセージ表示-->
+      <% if @customer.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <%= @customer.errors.count %>個のエラーあり
+          <% @customer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="row mx-auto">
+        <div class="col">
+          <h2 class="fas fa-wrench m-5 rounded p-3 border border-secondary">会員情報編集</h2>
+        </div>
+      </div>
+      <%=  form_with model: @customer, url: user_path, local:true do |f| %>
+
+        <div class="row mb-3">
+          <%= f.label :"氏名", class:"col-3 col-form-label" %>
+          <div class="col-12 col-lg-8">
+            <%= f.text_field :name, autofocus: true, class:"form-control" %>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <%= f.label :"郵便番号（ハイフンなし）", class:"col-3 col-form-label" %>
+          <div class="col-12 col-lg-8">
+            <%= f.text_field :postcode, autofocus: true, autocomplete: "postal_code", class:"form-control" %>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <%= f.label :"住所", class:"col-3 col-form-label" %>
+          <div class="col-12 col-lg-8">
+            <%= f.text_area :address, autofocus: true, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <%= f.label :"メールアドレス", class:"col-3 col-form-label" %>
+          <div class="col-12 col-lg-8">
+            <%= f.text_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+          </div>
+        </div>
+
+        <div class = "row mb-3">
+          <div class = "col-12 col-lg-3">
+            <%= f.label :"プロフィール画像", class:"form-label" %>
+          </div>
+          <div class = "col-12 col-lg-8">
+            <%= f.file_field :profile_image, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="row m-5">
+          <div class="col-3">
+          </div>
+          <div class="col-6">
+          <%= f.submit "            編集内容を保存           ", class:"btn btn-success" %>
+          </div>
+        </div>
       <% end %>
     </div>
-  <% end %>
-
-  <div class="row mx-auto">
-    <div class="col">
-      <h2 class="fas fa-wrench m-5 rounded p-3 border border-secondary">会員情報編集</h2>
-    </div>
   </div>
-  <%=  form_with model: @customer, url: user_path, local:true do |f| %>
-
-    <div class="row mb-3">
-      <%= f.label :"氏名", class:"col-3 col-form-label" %>
-      <div class="col-12 col-lg-4">
-        <%= f.text_field :name, autofocus: true, class:"form-control" %>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <%= f.label :"郵便番号（ハイフンなし）", class:"col-3 col-form-label" %>
-      <div class="col-12 col-lg-4">
-        <%= f.text_field :postcode, autofocus: true, autocomplete: "postal_code", class:"form-control" %>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <%= f.label :"住所", class:"col-3 col-form-label" %>
-      <div class="col-12 col-lg-4">
-        <%= f.text_area :address, autofocus: true, class:"form-control" %>
-      </div>
-    </div>
-
-    <div class="row mb-3">
-      <%= f.label :"メールアドレス", class:"col-3 col-form-label" %>
-      <div class="col-12 col-lg-4">
-        <%= f.text_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
-      </div>
-    </div>
-
-    <div class = "row mb-3">
-      <div class = "col-12 col-lg-3">
-        <%= f.label :"プロフィール画像", class:"form-label" %>
-      </div>
-      <div class = "col-12 col-lg-4">
-        <%= f.file_field :profile_image, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="row m-5">
-      <div class="col-3">
-      </div>
-      <div class="col-6">
-      <%= f.submit "            編集内容を保存           ", class:"btn btn-success" %>
-      </div>
-    </div>
-  <% end %>
 </div>
