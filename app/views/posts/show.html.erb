@@ -107,7 +107,7 @@
             <% if comment.customer.profile_image.attached? %>
                 <%= image_tag comment.customer.profile_image, class: "userimage_comment" %>
               <% else %>
-                <%= image_tag 'no_image.jpg', size: "100x100" %>
+                <%= image_tag 'no_image.jpg', class: "userimage_comment" %>
               <% end %>
           </div>
           <div class="col-4 mt-4">
