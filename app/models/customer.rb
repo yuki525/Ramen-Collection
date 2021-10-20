@@ -11,9 +11,9 @@ class Customer < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 1, maximum: 20 }
   validates :address, presence: true
-  validates :postcode, presence: true
+  validates :postcode, presence: true, length: { maximum: 7 }
 
 
 
