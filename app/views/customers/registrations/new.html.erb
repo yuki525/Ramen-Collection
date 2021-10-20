@@ -17,7 +17,7 @@
 
         <div class="field">
           <%= f.label :郵便番号, class: "form-label" %><br />
-          <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "form-control", placeholder: "郵便番号" %>
+          <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode", class: "form-control", placeholder: "郵便番号(ハイフンなし)" %>
         </div>
 
         <div class="field">
@@ -28,7 +28,7 @@
         <div class="field">
           <%= f.label :パスワード, class: "form-label" %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)</em>
+          (<%= @minimum_password_length %> 文字以上)
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード" %>
         </div>

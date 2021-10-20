@@ -3,9 +3,9 @@ class Post < ApplicationRecord
   belongs_to :customer
   has_one_attached :post_image
 
-  validates :shop_name, presence: true
+  validates :shop_name, presence: true, { maximum: 30 }
   validates :address, presence: true
-  validates :introduction, presence: true
+  validates :introduction, presence: true, { maximum: 100 }
   validates :taste, presence: true
   validates :noodle_hardness, presence: true
   validates :evaluation, presence: true

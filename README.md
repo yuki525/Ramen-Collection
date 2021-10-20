@@ -20,7 +20,7 @@
 ## 設計書
 * ER図
 
-![Ramen Collection-ER図 drawio](https://user-images.githubusercontent.com/85341753/134945161-deeb5434-2630-466b-93d2-c877b08f5b27.png)
+https://drive.google.com/file/d/1yJFhaLs_0812jq7etThQ95AmpxtsyeGG/view?usp=sharing
 
 * テーブル定義書
 
