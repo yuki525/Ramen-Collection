@@ -16,7 +16,7 @@ class Customer < ApplicationRecord
   validates :postcode, presence: true, length: { maximum: 7 }
 
 
-
+# いいね機能
   def already_favorited?(post)
     self.favorites.exists?(post_id: post.id)
   end
