@@ -16,13 +16,14 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_customers, through: :favorites, source: :customer
 
+  #緯度算出
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
 private
 
 
-
+　#ラーメン店名検索
   def self.search(keyword)
     where(["shop_name like? OR taste like?", "%#{keyword}%", "%#{keyword}%"])
 
