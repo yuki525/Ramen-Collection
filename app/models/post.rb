@@ -29,6 +29,7 @@ private
 
   end
 
+  #ラーメンスープの味で絞り込み
   def self.searchtaste(taste1)
   where(["taste like? OR address like?", "%#{taste1}%", "%#{taste1}%"])
   end
