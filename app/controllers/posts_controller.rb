@@ -51,7 +51,8 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to users_path
   end
-
+  
+  #ヘッダーの検索機能
   def search
     @posts = Post.search(params[:keyword])
     @posts = @posts.page(params[:page]).per(12)
