@@ -3,9 +3,9 @@ class Post < ApplicationRecord
   belongs_to :customer
   has_one_attached :post_image
 
-  validates :shop_name, presence: true, { maximum: 30 }
+  validates :shop_name, presence: true
   validates :address, presence: true
-  validates :introduction, presence: true, { maximum: 100 }
+  validates :introduction, presence: true
   validates :taste, presence: true
   validates :noodle_hardness, presence: true
   validates :evaluation, presence: true
@@ -23,7 +23,7 @@ class Post < ApplicationRecord
 private
 
 
-　#ラーメン店名検索
+
   def self.search(keyword)
     where(["shop_name like? OR taste like?", "%#{keyword}%", "%#{keyword}%"])
 
