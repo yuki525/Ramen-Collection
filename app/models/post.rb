@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   belongs_to :customer
   has_one_attached :post_image
 
-  validates :shop_name, presence: true
+  validates :shop_name, presence: true, length: { maximum: 20 }
   validates :address, presence: true
   validates :introduction, presence: true
   validates :taste, presence: true
