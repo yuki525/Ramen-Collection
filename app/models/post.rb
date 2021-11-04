@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_one_attached :post_image
 
   validates :shop_name, presence: true, length: { maximum: 20 }
-  validates :address, presence: true
+  validates :address, presence: true, length: { maximum: 50 }
   validates :introduction, presence: true
   validates :taste, presence: true
   validates :noodle_hardness, presence: true
