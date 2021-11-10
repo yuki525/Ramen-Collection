@@ -49,9 +49,17 @@
             <%= f.label :"プロフィール画像", class:"form-label" %>
           </div>
           <div class = "col-12 col-lg-8">
-            <%= f.file_field :profile_image, class: "form-control" %>
+            <%= f.file_field :profile_image, class: "form-control", onchange: "loadImage(this);" %>
+            <%= render "posts/loadimage" %>
+          </div>
+          <div class= "col-12 col-lg-1">
+            <div id="post_images" style="display: none;" >
+              <p id="preview"></p>
+            </div>
           </div>
         </div>
+
+
 
         <div class="row m-5">
           <div class="col-3">
