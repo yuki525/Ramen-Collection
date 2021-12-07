@@ -20,6 +20,8 @@ class UsersController < ApplicationController
     end
   end
 
+　#ストロングパラメーター
+
   private
 
   def customer_params
