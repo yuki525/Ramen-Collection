@@ -59,7 +59,8 @@ class PostsController < ApplicationController
     @keyword = params[:keyword]
     render "index"
   end
-
+  
+  #ストロングパラメーター
   private
 
   def post_params
