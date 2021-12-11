@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   private
 
+　#ストロングパラメーター
   def customer_params
     params.require(:customer).permit(:name, :postcode, :address, :email, :profile_image)
   end
